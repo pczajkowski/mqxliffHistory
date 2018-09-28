@@ -1,4 +1,3 @@
-#define _GNU_SOURCE //asks stdio.h to include asprintf
 #include <string.h>
 #include <stdio.h>
 #include <libxml/xmlmemory.h>
@@ -35,9 +34,9 @@ int transformXML(XMLBuff *infile) {
 	result = xsltApplyStylesheet(stylesheet, doc, NULL);
 	Stopif(!result, return 0, "Transformation failed for %s!\n", infile->name);
 
-	char *outFile;
 	struct fileInfo *fi = newFileInfo(infile->name);
-	asprintf(&outFile, "%s.html", fi->name);
+	char *outFile = malloc(fi->nameLength+6);
+	snprintf(outFile, fi->nameLength+6, "%s.html", fi->name);
 	freeFileInfo(fi);
 
 	FILE *fp;
