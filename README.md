@@ -15,6 +15,3 @@ You'll receive *document.html* with full version history.
 Feel free to use it however you want, but I take no responsibility for eventual damage.
 
 It's using [incbin](https://github.com/graphitemaster/incbin) for embedding xsl files into binary.
-
-You can find 64-bit Windows binary with necessary MingW libraries in *win* folder.
-
